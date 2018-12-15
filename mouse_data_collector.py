@@ -5,7 +5,7 @@ Seq_data = []
 X_data = []
 Y_data = []
 ##Dataset creation and handling
-path_to_csv = r'C:\Users\Jyothi\Desktop\data.csv'
+path_to_csv = r'data.csv'
 with open(path_to_csv,'w',newline='') as csv_file:
     csv_writer = csv.writer(csv_file,delimiter = ',')
     csv_writer.writerow(['sequence','x_coordinates','y_coordinates'])
