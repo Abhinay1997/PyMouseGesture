@@ -1,14 +1,22 @@
 from pynput import mouse
 import csv
+import os
 
 Seq_data = []
 X_data = []
 Y_data = []
 ##Dataset creation and handling
+# if dataset already exists, append to it.
+# otherwise create it and write to it.
 path_to_csv = r'data.csv'
-with open(path_to_csv,'w',newline='') as csv_file:
-    csv_writer = csv.writer(csv_file,delimiter = ',')
-    csv_writer.writerow(['sequence','x_coordinates','y_coordinates'])
+if os.path.isfile(path_to_csv):
+    with open(path_to_csv,'a',newline='') as csv_file:
+        csv_writer = csv.writer(csv_file,delimiter = ',')
+else:    
+    with open(path_to_csv,'w',newline='') as csv_file:
+        csv_writer = csv.writer(csv_file,delimiter = ',')
+        csv_writer.writerow(['sequence','x_coordinates','y_coordinates'])
+         
     
 ## Mouse input handling
 
